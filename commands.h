@@ -18,6 +18,7 @@ bool cg_switch_mode(arg_t);
 bool cg_toggle_bar(arg_t);
 bool cg_toggle_fullscreen(arg_t);
 bool cg_toggle_image_mark(arg_t);
+bool cg_leave_image_mark(arg_t);
 bool cg_unmark_all(arg_t);
 bool cg_zoom(arg_t);
 /* image mode */
@@ -60,6 +61,7 @@ bool ct_select(arg_t);
 #define g_toggle_bar { cg_toggle_bar, MODE_ALL }
 #define g_toggle_fullscreen { cg_toggle_fullscreen, MODE_ALL }
 #define g_toggle_image_mark { cg_toggle_image_mark, MODE_ALL }
+#define g_leave_image_mark { cg_leave_image_mark, MODE_ALL }
 #define g_unmark_all { cg_unmark_all, MODE_ALL }
 #define g_zoom { cg_zoom, MODE_ALL }
 

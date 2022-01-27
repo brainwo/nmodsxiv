@@ -195,6 +195,12 @@ bool cg_toggle_image_mark(arg_t _)
 	return mark_image(fileidx, !(files[fileidx].flags & FF_MARK));
 }
 
+bool cg_leave_image_mark(arg_t _)
+{
+  mark_image(fileidx, !(files[fileidx].flags & FF_MARK));
+  cg_quit(_);
+}
+
 bool cg_reverse_marks(arg_t _)
 {
 	int i;
