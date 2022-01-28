@@ -491,10 +491,11 @@ bool ct_select(arg_t _)
 			firstclick = xbutton_ev->time;
 			dirty = true;
 		} else if (xbutton_ev->time - firstclick <= TO_DOUBLE_CLICK) {
-			mode = MODE_IMAGE;
-			set_timeout(reset_cursor, TO_CURSOR_HIDE, true);
-			load_image(fileidx);
-			dirty = true;
+      cg_leave_image_mark(_);
+			//mode = MODE_IMAGE;
+			//set_timeout(reset_cursor, TO_CURSOR_HIDE, true);
+			//load_image(fileidx);
+			//dirty = true;
 		} else {
 			firstclick = xbutton_ev->time;
 		}
