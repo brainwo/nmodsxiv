@@ -17,7 +17,6 @@ expected in *this* repository, after making sure you are using the latest
 release of nsxiv. Contributions are welcome, see
 [CONTRIBUTING.md](CONTRIBUTING.md#Contribution-Guideline) for details.
 
-
 Features
 --------
 
@@ -29,18 +28,19 @@ Features
 * Basic support for animated/multi-frame images (GIF/WebP)
 * Display image information in status bar
 * Display image name/path in X title
-
++ Transparent background
++ Some keybinds changed, see *config.h*
 
 Screenshots
 -----------
 
 **Image mode: (Default colors)**
 
-![Image](https://raw.githubusercontent.com/nsxiv/nsxiv/gh-pages/img/image.png "Image mode")
+![Image](./.github/2.png "Image mode")
 
 **Thumbnail mode: (Custom colors)**
 
-![Thumb](https://raw.githubusercontent.com/nsxiv/nsxiv/gh-pages/img/thumb.png "Thumb mode")
+![Thumb](./.github/1.png "Thumb mode")
 
 
 Installing via package manager
