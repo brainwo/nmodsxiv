@@ -55,7 +55,7 @@ static const int PAN_FRACTION = 5;
 /* if false, pixelate images at zoom level != 100%,
  * toggled with 'a' key binding
  */
-static const bool ANTI_ALIAS = true;
+static const bool ANTI_ALIAS = false;
 
 /* if true, use a checkerboard background for alpha layer,
  * toggled with 'A' key binding
