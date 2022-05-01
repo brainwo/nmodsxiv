@@ -167,6 +167,7 @@ void win_init(win_t *win)
 			(((unsigned long) win->win_bg.green >> 8) <<  8) |
 			(((unsigned long) win->win_bg.red   >> 8) << 16) |
 			(((unsigned long) win->win_alpha        ) << 24);
+
 	}
 
 #if HAVE_LIBFONTS
@@ -174,6 +175,20 @@ void win_init(win_t *win)
 	bar_fg = win_res(db, RES_CLASS ".bar.foreground", DEFAULT_BAR_FG ? DEFAULT_BAR_FG : win_fg);
 	xft_alloc_color(e, bar_bg, &win->bar_bg);
 	xft_alloc_color(e, bar_fg, &win->bar_fg);
+
+	if (e->depth == 32 && alpha < 1.0) {
+    alpha = alpha / 10;
+		win->bar_bg.red *= alpha;
+		win->bar_bg.green *= alpha;
+		win->bar_bg.blue *= alpha;
+		win->bar_bg.pixel =
+			(((unsigned long) win->bar_bg.blue  >> 8) <<  0) |
+			(((unsigned long) win->bar_bg.green >> 8) <<  8) |
+			(((unsigned long) win->bar_bg.red   >> 8) << 16) |
+			(((unsigned long) win->win_alpha        ) << 24);
+  }
+
+
 
 	f = win_res(db, RES_CLASS ".bar.font", DEFAULT_FONT);
 	win_init_font(e, f);

@@ -403,8 +403,8 @@ struct win {
 	XColor mrk_fg;
   unsigned int win_alpha;
 #if HAVE_LIBFONTS
-	XftColor bar_bg;
-	XftColor bar_fg;
+	XColor bar_bg;
+	XColor bar_fg;
 #endif
 
 	int x;
