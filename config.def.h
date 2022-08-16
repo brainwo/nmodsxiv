@@ -1,4 +1,4 @@
-#ifdef _WINDOW_CONFIG
+#ifdef INCLUDE_WINDOW_CONFIG
 
 /* default window dimensions (overwritten via -g option): */
 static const int WIN_WIDTH  = 800;
@@ -14,23 +14,13 @@ static const char *DEFAULT_MARK_COLOR = NULL;  /* NULL means it will default to 
 static const char *DEFAULT_BAR_BG     = NULL;  /* NULL means it will default to window background */
 static const char *DEFAULT_BAR_FG     = NULL;  /* NULL means it will default to window foreground */
 static const char *DEFAULT_FONT       = "monospace-8";
-#endif
+
+/* if true, statusbar appears on top of the window */
+static const bool TOP_STATUSBAR = false;
+#endif /* HAVE_LIBFONTS */
 
 #endif
-#ifdef _TITLE_CONFIG
-
-/* default title prefix */
-static const char *TITLE_PREFIX = "nsxiv - ";
-
-/* default title suffixmode, available options are:
- * SUFFIX_EMPTY
- * SUFFIX_BASENAME
- * SUFFIX_FULLPATH
- */
-static const suffixmode_t TITLE_SUFFIXMODE = SUFFIX_BASENAME;
-
-#endif
-#ifdef _IMAGE_CONFIG
+#ifdef INCLUDE_IMAGE_CONFIG
 
 /* levels (in percent) to use when zooming via '-' and '+':
  * (first/last value is used as min/max zoom level)
@@ -66,13 +56,16 @@ static const bool ALPHA_LAYER = false;
  *   3 means use 3% of total memory which is about 245MiB on 8GiB machine.
  *   0 or less means disable cache.
  * 100 means use all available memory (but not above CACHE_SIZE_LIMIT).
+ *
+ * NOTE: higher cache size means better image reloading performance, but also
+ * higher memory usage.
  */
 static const int CACHE_SIZE_MEM_PERCENTAGE = 3;          /* use 3% of total memory for cache */
 static const int CACHE_SIZE_LIMIT = 256 * 1024 * 1024;   /* but not above 256MiB */
 static const int CACHE_SIZE_FALLBACK = 32 * 1024 * 1024; /* fallback to 32MiB if we can't determine total memory */
 
 #endif
-#ifdef _THUMBS_CONFIG
+#ifdef INCLUDE_THUMBS_CONFIG
 
 /* thumbnail sizes in pixels (width == height): */
 static const int thumb_sizes[] = { 32, 64, 96, 128, 160 };
@@ -81,7 +74,7 @@ static const int thumb_sizes[] = { 32, 64, 96, 128, 160 };
 static const int THUMB_SIZE = 3;
 
 #endif
-#ifdef _MAPPINGS_CONFIG
+#ifdef INCLUDE_MAPPINGS_CONFIG
 
 /* these modifiers will be used when processing keybindings */
 static const unsigned int USED_MODMASK = ShiftMask | ControlMask | Mod1Mask;
